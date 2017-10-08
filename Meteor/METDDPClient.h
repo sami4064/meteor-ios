@@ -65,6 +65,11 @@ typedef void (^METLogOutCompletionHandler)(NSError * __nullable error);
 - (instancetype)initWithServerURL:(NSURL *)serverURL;
 - (instancetype)init NS_UNAVAILABLE;
 
+#pragma mark - Custom Metadata
+/// @name Accessing Custom Metadata
+
+@property (nullable, copy, nonatomic) NSDictionary* customMetadata;
+
 #pragma mark - Delegate
 /// @name Managing the Delegate
 

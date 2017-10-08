@@ -516,6 +516,13 @@ NSString * const METDDPClientDidChangeAccountNotification = @"METDDPClientDidCha
     message[@"params"] = parameters;
   }
   
+  if (_customMetadata) {
+    NSMutableDictionary* paramsWithCustomMetaData = message[@"params"] ? [message[@"params"] mutableCopy] : [NSMutableDictionary new];
+    [paramsWithCustomMetaData addEntriesFromDictionary:_customMetadata];
+        
+    message[@"params"] = paramsWithCustomMetaData;
+  }
+    
   [self sendMessage:message];
 }
 
@@ -590,6 +597,13 @@ NSString * const METDDPClientDidChangeAccountNotification = @"METDDPClientDidCha
     message[@"randomSeed"] = randomSeed;
   }
   
+  if (_customMetadata) {
+    NSMutableDictionary* paramsWithCustomMetaData = message[@"params"] ? [message[@"params"] mutableCopy] : [NSMutableDictionary new];
+    [paramsWithCustomMetaData addEntriesFromDictionary:_customMetadata];
+      
+    message[@"params"] = paramsWithCustomMetaData;
+  }
+        
   [self sendMessage:message];
 }
 
